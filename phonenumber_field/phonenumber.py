@@ -66,6 +66,10 @@ class PhoneNumber(phonenumbers.PhoneNumber):
     @property
     def as_rfc3966(self):
         return self.format_as(phonenumbers.PhoneNumberFormat.RFC3966)
+    
+    @property
+    def is_mobile(self):
+        return phonenumbers.number_type(self) == phonenumbers.PhoneNumberType.MOBILE
 
     def __len__(self):
         return len(self.__unicode__())
